@@ -1,0 +1,24 @@
+package by.trjava.trips.chekun.domain.specification.impl;
+
+import by.trjava.trips.chekun.domain.entity.fields.TripField;
+import by.trjava.trips.chekun.domain.specification.AbstractTripSpecification;
+import by.trjava.trips.chekun.domain.specification.criteria.Criteria;
+import by.trjava.trips.chekun.domain.specification.criteria.InputLineValidator;
+
+public class TripSpecificationByDayCount extends AbstractTripSpecification {
+
+    private Criteria criteria = new Criteria();
+    private InputLineValidator validator;
+
+    public TripSpecificationByDayCount(int dayCount) {
+        this.criteria.add(TripField.Trip.DAY_COUNT.toString(), dayCount);
+        this.validator = new InputLineValidator(this.criteria);
+    }
+
+
+    @Override
+    public boolean isSatisfiedBy(String string) {
+        return validator.validate(string);
+    }
+
+}

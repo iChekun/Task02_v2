@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration monitorInterval="3">
+
+    <!--make  two appenders -->
+    <appenders>
+
+        <File name="ALL" fileName="E:\JavaProjects\Task02_v2\log\all.txt">
+            <PatternLayout pattern="%d{ISO8601} [%-5p] (%F:%L) - %m%n"/>
+        </File>
+
+        <File name="WORK" fileName="E:\JavaProjects\Task02_v2\log\work.txt">
+            <PatternLayout pattern="%d{ISO8601} [%-5p] (%F:%L) - %m%n"/>
+        </File>
+
+    </appenders>
+
+    <loggers>
+
+        <logger name="by.trjava.trips.chekun.view" level="INFO">
+            <appender-ref ref="WORK"/>
+        </logger>
+
+        <root level="DEBUG">
+            <appender-ref ref="ALL"/>
+        </root>
+
+    </loggers>
+
+</configuration>
